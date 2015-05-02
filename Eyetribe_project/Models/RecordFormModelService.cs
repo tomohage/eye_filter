@@ -33,6 +33,13 @@ namespace Eyetribe_project.Models {
             this.stop_watch.Start();
         }
 
+        /// <summary>
+        /// CSVファイルに視線データを書きこむメソッド
+        /// </summary>
+        /// <remarks>
+        /// 実行するたびにcsvファイルに現在の視点座標を書き込むメソッド
+        /// startSavingCsvFileメソッドが実行された後に実行できる
+        /// </remarks>
         public void writeEyePointLocationOnCsvFile () {
             if (this.stream_writer == null) {
                 throw new Exception("StreamWriterクラスのインスタンスが未定義っぽい。startSavingCsvFileメソッド実行した？");
@@ -61,22 +68,58 @@ namespace Eyetribe_project.Models {
             this.stop_watch.Stop();
         }
 
+        /// <summary>
+        /// stopボタンのvisibleを切り替えるメソッド
+        /// </summary>
+        /// <param name="visible">boolで切り替える</param>
+        /// <remarks>
+        /// stopボタンのvisibleを切り替えるメソッド
+        /// </remarks>
         public void visibleStopButton (bool visible) {
             this.record_form.stop_button.Visible = visible;
         }
 
+        /// <summary>
+        /// startボタンのvisibleを切り替えるメソッド
+        /// </summary>
+        /// <param name="visible">boolで切り替える</param>
+        /// <remarks>
+        /// startボタンのvisibleを切り替えるメソッド
+        /// </remarks>
         public void visibleStartButton (bool visible) {
             this.record_form.start_button.Visible = visible;
         }
 
+        /// <summary>
+        /// CsvFileSaveCheckBoxのenabledを切り替えるメソッド
+        /// </summary>
+        /// <param name="enabled">boolで切り替える</param>
+        /// <remarks>
+        /// CsvFileSaveCheckBoxのenabledを切り替えるメソッド
+        /// </remarks>
         public void enabledCsvFileSaveCheckBox (bool enabled) {
             this.record_form.csv_file_save_checkbox.Enabled = enabled;
         }
 
+        /// <summary>
+        /// FileReferenceButtonを切り替えるメソッド
+        /// </summary>
+        /// <param name="enabled">boolで切り替える</param>
+        /// <remarks>
+        /// FileReferenceButtonのenabledを切り替えるメソッド
+        /// </remarks>
         public void enabledFileReferenceButton (bool enabled) {
             this.record_form.file_reference_button.Enabled = enabled;
         }
 
+        /// <summary>
+        /// saving_csv_file_checkboxの切り替えに対して他のコントロールに連動させるメソッド
+        /// </summary>
+        /// <param name="is_checked">saving_csv_file_checkboxのchecked</param>
+        /// <remarks>
+        /// saving_csv_file_checkboxの切り替えに対して他のコントロールに連動させるメソッド
+        /// file_referece_buttonとstart_buttonと連動
+        /// </remarks>
         public void changeSavingCsvFileCheckBox (bool is_checked) {
             this.record_form.csv_file_save_checkbox.Checked = is_checked;
             if (is_checked) {

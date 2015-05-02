@@ -86,6 +86,14 @@ namespace Eyetribe_project.Models {
             Console.WriteLine("勇気の切断");
         }
 
+        /// <summary>
+        /// 視点座標取得メソッド
+        /// </summary>
+        /// <remarks>
+        /// EyeTribeが認識している現在の視点座標を返す
+        /// </newpare>
+        /// </remarks>
+        /// <returns>現在の視点座標</returns>
         public Point getEyePointLocation () {
             return new Point((int)this.x, (int)this.y);
         }

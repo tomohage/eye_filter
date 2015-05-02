@@ -12,3 +12,5 @@ C:\Users\Tomoki\Documents\Visual Studio 2010\Projects\Eyetribe_project\Eyetribe_
 C:\Users\Tomoki\Documents\Visual Studio 2010\Projects\Eyetribe_project\Eyetribe_project\obj\x86\Debug\Eyetribe_project.Views.EyeFilter.resources
 C:\Users\Tomoki\Documents\Visual Studio 2010\Projects\Eyetribe_project\Eyetribe_project\obj\x86\Debug\Eyetribe_project.Views.EyeFilterSetting.resources
 C:\Users\Tomoki\Documents\Visual Studio 2010\Projects\Eyetribe_project\Eyetribe_project\obj\x86\Debug\Eyetribe_project.Views.RecordForm.resources
+C:\Users\Tomoki\Documents\eye_filter\Eyetribe_project\obj\x86\Debug\Eyetribe_project.exe
+C:\Users\Tomoki\Documents\eye_filter\Eyetribe_project\obj\x86\Debug\Eyetribe_project.pdb

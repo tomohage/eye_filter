@@ -31,18 +31,46 @@ namespace Eyetribe_project.Models {
             this.file_path_saved = record_form.CsvFilePathTextBox.Text;
         }
 
+        /// <summary>
+        /// メンバ変数の保存先ファイルパスを返すメソッド
+        /// </summary>
+        /// <remarks>
+        /// メンバ変数の保存先ファイルパスを返すメソッド
+        /// </remarks>
+        /// <returns>file_path_saved</returns>
         public string getFilePathSaved () {
             return this.file_path_saved;
         }
 
+        /// <summary>
+        /// メンバ変数の保存先ファイルパスを更新メソッド
+        /// </summary>
+        /// <param name="file_path_saved">新しい保存先ファイルパス</param>
+        /// <remarks>
+        /// メンバ変数の保存先ファイルパスを返すメソッド
+        /// </remarks>
         public void updateFilePathSaved (string file_path_saved) {
             this.file_path_saved = file_path_saved;
         }
 
+        /// <summary>
+        /// メンバ変数の保存するか否かの真偽値を返すメソッド
+        /// </summary>
+        /// <remarks>
+        /// メンバ変数の保存するか否かの真偽値を返すメソッド
+        /// </remarks>
+        /// <returns>is_saved_as_csv_file</returns>
         public bool getIsSavedAsCsvFile () {
             return this.is_saved_as_csv_file;
         }
 
+        /// <summary>
+        /// メンバ変数の保存するか否かの真偽値を更新するメソッド
+        /// </summary>
+        /// <param name="is_saved_as_csv_file">セーブするかしないかの真偽値</param>
+        /// <remarks>
+        /// メンバ変数の保存するか否かの真偽値を更新するメソッド
+        /// </remarks>
         public void updateIsSavedAsCsvFile (bool is_saved_as_csv_file) {
             this.is_saved_as_csv_file = is_saved_as_csv_file;
         }

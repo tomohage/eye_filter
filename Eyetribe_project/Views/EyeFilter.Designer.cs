@@ -50,11 +50,11 @@ namespace Eyetribe_project.Views {
             // eye_point
             // 
             this.eye_point.AutoSize = true;
-            this.eye_point.Font = new System.Drawing.Font("MS UI Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.eye_point.Font = new System.Drawing.Font("MS UI Gothic", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.eye_point.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.eye_point.Location = new System.Drawing.Point(2, 9);
+            this.eye_point.Location = new System.Drawing.Point(0, 0);
             this.eye_point.Name = "eye_point";
-            this.eye_point.Size = new System.Drawing.Size(68, 48);
+            this.eye_point.Size = new System.Drawing.Size(54, 37);
             this.eye_point.TabIndex = 2;
             this.eye_point.Text = "●";
             this.eye_point.Visible = false;

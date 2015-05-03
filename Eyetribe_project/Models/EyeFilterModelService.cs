@@ -5,6 +5,7 @@ using System.Text;
 using System.Drawing;
 using System.Diagnostics;
 using System.Collections;
+using System.Windows.Forms;
 using System.IO;
 
 namespace Eyetribe_project.Models {
@@ -17,13 +18,13 @@ namespace Eyetribe_project.Models {
         /// モニター上での視点座標をフィルター上の座標に変換するメソッド
         /// </remarks>
         public Point arangeByMonitorAndFilterSize (Point eye_point_location) {
-            // 視点座標を右上端ではなくテキストボックスの中心にずらす
-            double re_x = eye_point_location.X - this.eye_filter.eye_point.Size.Width / 2;
-            double re_y = eye_point_location.Y - this.eye_filter.eye_point.Size.Height / 2;
-
             // 座標をモニターのサイズに調整
-            re_x = re_x * this.filter_size.Width / this.monitor_size.Width;
-            re_y = re_y * this.filter_size.Height / this.monitor_size.Height;
+            double re_x = eye_point_location.X * this.filter_size.Width / this.monitor_size.Width;
+            double re_y = eye_point_location.Y * this.filter_size.Height / this.monitor_size.Height;
+
+            // 視点座標を右上端ではなくテキストボックスの中心にずらす
+            re_x -= this.eye_filter.eye_point.Size.Width / 2;
+            re_y -= this.eye_filter.eye_point.Size.Height / 2;
 
             return new Point((int)re_x, (int)re_y);
         }
@@ -37,13 +38,15 @@ namespace Eyetribe_project.Models {
         /// 目を認識できない場合は視点を消す
         /// </remarks>
         public void redraw () {
+            // モニター上の視点座標を取得
+            this.visual_point_location = this.eyetribe.getEyePointLocation();
+            // フィルタのサイズとモニターのサイズから計算したフィルタ上での視点座標
+            Point eye_point_location_on_monitor = this.arangeByMonitorAndFilterSize(this.visual_point_location);
+            eye_point_location_on_monitor = this.arrangeTitleBar(eye_point_location_on_monitor);
+            Console.WriteLine(eye_point_location_on_monitor);
             if (this.is_eye()) {
                 this.eye_filter.eye_point.Visible = true;
-                // モニター上の視点座標を取得
-                Point eye_point_location_on_monitor = this.eyetribe.getEyePointLocation();
-                this.visual_point_location = eye_point_location_on_monitor;
-                // フィルタのサイズとモニターのサイズから計算したフィルタ上での視点座標
-                this.eye_filter.eye_point.Location = this.arangeByMonitorAndFilterSize(eye_point_location_on_monitor);
+                this.eye_filter.eye_point.Location = eye_point_location_on_monitor;
                 this.eye_filter.eye_point.Size = this.visual_point_size;
             } else {
                 this.eye_filter.eye_point.Visible = false;
@@ -131,7 +134,7 @@ namespace Eyetribe_project.Models {
         /// </remarks>
         public bool is_eye () {
             Point eye_point_locatin = this.eyetribe.getEyePointLocation();
-            if ((eye_point_locatin.X <= 0 || eye_point_locatin.Y <= 0) ||
+            if ((eye_point_locatin.X <= 0 || eye_point_locatin.Y <= -SystemInformation.CaptionHeight) ||
                 (eye_point_locatin.X > this.monitor_size.Width || eye_point_locatin.Y > this.monitor_size.Height)) {
                 return false;
             }
@@ -149,5 +152,9 @@ namespace Eyetribe_project.Models {
             this.eye_filter.start_button.Visible = visible;
         }
 
+        public Point arrangeTitleBar (Point eye_point_location) {
+            eye_point_location.Y -= SystemInformation.CaptionHeight;
+            return eye_point_location;
+        }
     }
 }

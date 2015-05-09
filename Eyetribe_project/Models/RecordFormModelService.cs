@@ -56,6 +56,16 @@ namespace Eyetribe_project.Models {
         }
 
         /// <summary>
+        /// RecordFormのストップウォッチラベルを更新するメソッド
+        /// </summary>
+        /// <remarks>
+        /// RecordFormのストップウォッチラベルを更新する
+        /// </remarks>
+        public void updateRecordStopwatchTimeLabel () {
+            this.record_form.record_stopwatch_time_label.Text = this.stop_watch.ElapsedMilliseconds.ToString() + " [ms]";
+        }
+
+        /// <summary>
         /// CSVファイルに視線データを記録終了するメソッド
         /// </summary>
         /// <remarks>

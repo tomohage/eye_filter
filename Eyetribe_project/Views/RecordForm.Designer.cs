@@ -30,6 +30,7 @@
             this.stop_button = new System.Windows.Forms.Button();
             this.start_button = new System.Windows.Forms.Button();
             this.write_csv_file_timer = new System.Windows.Forms.Timer(this.components);
+            this.record_stopwatch_time_label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // csv_file_save_checkbox
@@ -64,7 +65,7 @@
             // 
             // stop_button
             // 
-            this.stop_button.Location = new System.Drawing.Point(156, 83);
+            this.stop_button.Location = new System.Drawing.Point(156, 97);
             this.stop_button.Name = "stop_button";
             this.stop_button.Size = new System.Drawing.Size(75, 23);
             this.stop_button.TabIndex = 11;
@@ -76,7 +77,7 @@
             // start_button
             // 
             this.start_button.Enabled = false;
-            this.start_button.Location = new System.Drawing.Point(156, 83);
+            this.start_button.Location = new System.Drawing.Point(156, 97);
             this.start_button.Name = "start_button";
             this.start_button.Size = new System.Drawing.Size(75, 23);
             this.start_button.TabIndex = 12;
@@ -89,11 +90,21 @@
             this.write_csv_file_timer.Interval = 10;
             this.write_csv_file_timer.Tick += new System.EventHandler(this.write_csv_file_timer_Tick);
             // 
+            // record_stopwatch_time_label
+            // 
+            this.record_stopwatch_time_label.AutoSize = true;
+            this.record_stopwatch_time_label.Location = new System.Drawing.Point(170, 68);
+            this.record_stopwatch_time_label.Name = "record_stopwatch_time_label";
+            this.record_stopwatch_time_label.Size = new System.Drawing.Size(38, 12);
+            this.record_stopwatch_time_label.TabIndex = 13;
+            this.record_stopwatch_time_label.Text = "0 [ms]";
+            // 
             // RecordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(422, 130);
+            this.Controls.Add(this.record_stopwatch_time_label);
             this.Controls.Add(this.start_button);
             this.Controls.Add(this.stop_button);
             this.Controls.Add(this.file_reference_button);
@@ -114,5 +125,6 @@
         public System.Windows.Forms.Button start_button;
         public System.Windows.Forms.Button file_reference_button;
         public System.Windows.Forms.Timer write_csv_file_timer;
+        public System.Windows.Forms.Label record_stopwatch_time_label;
     }
 }

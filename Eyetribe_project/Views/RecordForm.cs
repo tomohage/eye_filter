@@ -56,6 +56,7 @@ namespace Eyetribe_project.Views {
 
         private void write_csv_file_timer_Tick (object sender, EventArgs e) {
             this.record_form_model.writeEyePointLocationOnCsvFile();
+            this.record_form_model.updateRecordStopwatchTimeLabel();
         }
 
         private void stop_button_Click (object sender, EventArgs e) {
